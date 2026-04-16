@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{url_for('static', filename='img/favicon.png')}}" type="image/x-icon">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Landing Page Infoprodutos</title>
+</head>
+<body id="siteBody">
+    <header>
+        <div class="logo-header" onclick="window.location.href = ''">Sua Logo</div>
+        <div>
+            <nav class="nav-bar" id="navBar">
+                <p id="moreOptions" class="options">Opções <i class="fa-sharp-duotone fa-solid fa-angle-down"></i></p>
+                <ul class="nav-list" id="navList">
+                    <li class="item-list" id="itemList"><a class="link-action" id="linkConhecimento">Conhecimentos</a></li>
+                    <li class="item-list" id="itemList"><a class="link-action" id="linkDepoimento">Depoimentos</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div>
+            <button type="button" class="button-inscrever-se" id="buttonInscrever">Inscreva-se</button>
+        </div>
+    </header>
+    <main id="screen">
+        <section class="section-inicial-landing">
+            <div class="title-landing">
+                <h1>Transforme <span>Sua Vida</span></h1>
+                <h2>Com Nosso <span>Método Exclusívo!</span></h2>
+            </div>
+            <div class="body-landing-description">
+                <p>
+                    Descubra passo a passo para alcançar seus objetivos <br>
+                    e viver a vida dos seus sonhos.
+                </p>
+            </div>
+            <form class="body-landing-email" id="formEmail" method="post">
+                {{ form.hidden_tag()}}
+                {% if form.email.errors %}
+                    <span style="color:rgb(255, 85, 85);">
+                        {{ form.email.errors[0] }}
+                    </span>
+                {% endif %}
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <span style="color:rgb(39, 192, 67);">
+                            {{ messages[0] }}
+                        </span>
+                    {% endif %}
+                {% endwith %}
+                {{ form.email(class="email-camp", id="inputEmail", placeholder="Digite o seu melhor email") }}
+                <button type="submit" class="button-inscrever-se" id="buttonInscrever">Quero receber!</button>
+            </form>
+            <div class="body-landing-promise">
+                <div class="div-promise">
+                    <img src="{{url_for('static', filename='img/qualidade.svg')}}">
+                    <p>Conteúdo de Alta Qualidade</p>
+                </div>
+                <div class="div-promise">
+                    <img src="{{url_for('static', filename='img/Superhero-cuate.svg')}}">
+                    <p>Resultados Comprovados</p>
+                </div>
+                <div class="div-promise">
+                    <img src="{{url_for('static', filename='img/Time management-cuate.svg')}}">
+                    <p>Garantia de Até 7 Dias</p>
+                </div>
+            </div>
+            <div class="body-landing-apresentar" id="conhecimento">
+                <div class="titulo-secao">
+                    <div class="linha"></div>
+                    <h2>O Que Você Vai Aprender</h2>
+                    <div class="linha"></div>
+                </div>
+                <div class="body-secao">
+                    <div class="div-apresentar">
+                        <div class="div-top-apresentar"></div>
+                        <div class="div-content-apresentar">
+                            <div class="div-module">
+                                <div class="img-module">
+                                    <img src="{{url_for('static', filename='img/Teaching-cuate.svg')}}">
+                                </div>
+                                <div class="text-module">
+                                    <p>Módulo 1</p>
+                                    <h4>Fundamentos</h4>
+                                </div>
+                            </div>
+                            <div class="div-module-descrition">
+                                <i class="fa-sharp-duotone fa-regular fa-square-check"></i>
+                                <p>Aprenda as bases essenciais para começar.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="div-apresentar">
+                        <div class="div-top-apresentar"></div>
+                        <div class="div-content-apresentar">
+                            <div class="div-module">
+                                <div class="img-module">
+                                    <img src="{{url_for('static', filename='img/Collaboration-cuate.svg')}}">
+                                </div>
+                                <div class="text-module">
+                                    <p>Módulo 2</p>
+                                    <h4>Estratégias Avançadas</h4>
+                                </div>
+                            </div>
+                            <div class="div-module-descrition">
+                                <i class="fa-sharp-duotone fa-regular fa-square-check"></i>
+                                <p>Técnicas para ir além e obter resultados.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="div-apresentar">
+                        <div class="div-top-apresentar"></div>
+                        <div class="div-content-apresentar">
+                            <div class="div-module">
+                                <div class="img-module">
+                                    <img src="{{url_for('static', filename='img/Revenue-cuate.svg')}}">
+                                </div>
+                                <div class="text-module">
+                                    <p>Módulo 3</p>
+                                    <h4>Sucesso na Prática</h4>
+                                </div>
+                            </div>
+                            <div class="div-module-descrition">
+                                <i class="fa-sharp-duotone fa-regular fa-square-check"></i>
+                                <p>Aplicações reais para alcançar seus objetivos.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="body-landing-depoimento" id="depoimento">
+                <div class="titulo-secao">
+                    <div class="linha"></div>
+                        <h2>Depoimento de Alunos</h2>
+                    <div class="linha"></div>
+                </div>
+                <div class="depoimento-content">
+                    <div class="card-depoimento">
+                        <div class="img-alunos">
+                            <img src="{{url_for('static', filename='img/Learning-bro.svg')}}">
+                        </div>
+                        <div class="text-alunos">
+                            <p>
+                                "Esse curso mudou minha forma de trabalhar!"
+                            </p> <br>
+                            <br>
+                            <p>Eduardo Dos Santos ⭐⭐⭐⭐⭐</p>
+                        </div>
+                    </div>
+                    <div class="card-depoimento">
+                        <div class="img-alunos">
+                            <img src="{{url_for('static', filename='img/Learning-pana.svg')}}">
+                        </div>
+                        <div class="text-alunos">
+                            <p>
+                                "Didática clara e prática. Recomendo muito."
+                            </p> <br>
+                            <br>
+                            <p>Jéssica Coppola ⭐⭐⭐⭐⭐</p>
+                        </div>
+                    </div>
+                    <div class="card-depoimento">
+                        <div class="img-alunos">
+                            <img src="{{url_for('static', filename='img/Learning-amico.svg')}}">
+                        </div>
+                        <div class="text-alunos">
+                            <p>
+                                "Consegui meu primeiro cliente depois das aulas."
+                            </p> <br>
+                            <br>
+                            <p>Maria Costa ⭐⭐⭐⭐⭐</p>
+                        </div>
+                    </div>
+                    <div class="card-depoimento">
+                        <div class="img-alunos">
+                            <img src="{{url_for('static', filename='img/Learning-cuate.svg')}}">
+                        </div>
+                        <div class="text-alunos">
+                            <p>
+                                "Esse curso mudou minha vida! <br>
+                                Conquistei resultados incríveis em poucas semanas."
+                            </p> <br>
+                            <br>
+                            <p>Ana Pereira ⭐⭐⭐⭐⭐</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p onclick="window.location.replace('https://pedrionsx.github.io/pedrolucas.github.io/')">© 2026 - Pedro Lucas da Silva Rosa</p>
+    </footer>
+    <script src="{{url_for('static', filename='js/script.js')}}"></script>
+</body>
+</html>
