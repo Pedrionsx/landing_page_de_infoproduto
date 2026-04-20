@@ -24,6 +24,8 @@ header {
 main {
     padding: 2rem;
     background-color: #182130;
+    width: 100vw;
+    height: 100vh;
 }
 
 footer {
@@ -313,7 +315,7 @@ span {
         cursor: pointer;
     }
     .title-landing {
-        width: 70%;
+        width: 100%;
         padding: 1rem;
         border: solid transparent 0.5px;
         border-bottom-color: #414752;
@@ -325,10 +327,10 @@ span {
         font-size: 18pt;
     }
     .body-landing-description {
-        width: 70%;
+        width: 100%;
     }
     .body-landing-email {
-        width: 70%;
+        width: 100%;
     }
     .email-camp {
         width: 100%;
